@@ -156,7 +156,7 @@ stages:
       #!/bin/bash
       #set -x
 
-      source <(curl -s -S -L "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_helm_up_and_running.sh")
+      source <(curl -s -S -L "https://raw.githubusercontent.com/huayuenh/commons/master/scripts/check_helm_up_and_running.sh")
 
       # Install CISE
       if helm list cise | grep '^cise'; then
@@ -178,7 +178,7 @@ stages:
         DEVOPS_SIGNER=$(echo $signer_and_key | jq -r '.name')
         DEVOPS_SIGNER_PRIVATE_KEY=$(echo $signer_and_key | jq -r '.key')
 
-        source <(curl -s -S -L "https://raw.githubusercontent.com/huayuenh/commons/master/scripts/image_signing/create_cise_crd.sh")
+        source <(curl -s -S -L "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/image_signing/create_cise_crd.sh")
         createCISE_CRD | tee cise_crd_custom_policy.yaml
 
         echo " "
