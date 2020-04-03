@@ -169,7 +169,7 @@ stages:
     script: |
       #!/bin/bash
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/image_signing/add_docker.sh")
-      source <(curl -s -S -L "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/setup_dind.sh")
+      source <(curl -s -S -L "https://raw.githubusercontent.com/huayuenh/commons/master/scripts/setup_dind.sh")
       # configure the container registry
       REGISTRY_REGION=$(echo "$REGISTRY_REGION" | awk -F ':' '{print $NF;}')
       ibmcloud cr region-set $REGISTRY_REGION
@@ -244,7 +244,7 @@ stages:
       # set -x
       # Sign the built image as validated
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/image_signing/add_docker.sh")
-      source <(curl -s -S -L "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/setup_dind.sh")
+      source <(curl -s -S -L "https://raw.githubusercontent.com/huayuenh/commons/master/scripts/setup_dind.sh")
       # configure the container registry
       REGISTRY_REGION=$(echo "$REGISTRY_REGION" | awk -F ':' '{print $NF;}')
       ibmcloud cr region-set $REGISTRY_REGION
@@ -305,7 +305,7 @@ stages:
       # set -x
       # This script inspect the docker image signatures to ensure compliance
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/image_signing/add_docker.sh")
-      source <(curl -s -S -L "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/setup_dind.sh")
+      source <(curl -s -S -L "https://raw.githubusercontent.com/huayuenh/commons/master/scripts/setup_dind.sh")
       # configure the container registry
       REGISTRY_REGION=$(echo "$REGISTRY_REGION" | awk -F ':' '{print $NF;}')
       ibmcloud cr region-set $REGISTRY_REGION
