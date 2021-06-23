@@ -327,6 +327,7 @@ stages:
       # uncomment to debug the script
       # set -x
       # This script inspect the docker image signatures to ensure compliance
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/image_signing/add_docker.sh")
       source <(curl -s -S -L "${COMMONS_HOSTED_REGION}/scripts/setup_dind.sh")
       # configure the container registry
       REGISTRY_REGION=$(echo "$REGISTRY_REGION" | awk -F ':' '{print $NF;}')
