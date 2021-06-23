@@ -279,9 +279,7 @@ stages:
       # Initialize the REGISTRY_URL and DOCKER_CONTENT_TRUST_SERVER
       export REGISTRY_URL=$(ibmcloud cr info | grep -m1 -i '^Container Registry' | awk '{print $3;}')
       export DOCKER_CONTENT_TRUST_SERVER="https://$REGISTRY_URL:4443"
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/secrets_management.sh")
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/image_signing/signing_utilsv2.sh")
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/image_signing/sign_image_with_vault_keysv2.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/image_signing/sign_image_with_vault_keys.sh")
 - name: DEPLOY
   inputs:
   - type: job
