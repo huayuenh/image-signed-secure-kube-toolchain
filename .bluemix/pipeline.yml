@@ -203,7 +203,7 @@ stages:
       export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=$(getJSONValue "passphrase" "$signerkey")
 
       export DCT_DISABLED=false
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/image_signing/build_image_dind.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/build_image_dind.sh")
       ibmcloud cr image-digests --json --restrict ${REGISTRY_NAMESPACE}/${IMAGE_NAME} | jq -c '.[]' > list
       TARGET_IMAGE=$(grep -F "${IMAGE_TAG}" list)
       echo "TARGET_IMAGE $TARGET_IMAGE"
